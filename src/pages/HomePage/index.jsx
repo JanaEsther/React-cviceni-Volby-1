@@ -11,8 +11,11 @@ export const HomePage = () => {
     { name: "Markéta Smetana", avatar: '/avatars/candidate02.png' },
     { name: "Beáta Skočdopolová", avatar: '/avatars/candidate03.png' },
     { name: "Lubomír Poňuchálek", avatar: '/avatars/candidate04.png' },
-  ]), []);
-  
+  ]), []); 
+
+   const handleVote = (name)=>{
+    setPresident(name)// do stavu president da jmeno, prekresli se komponenta
+   }
   return (
     <div className="container">
       <div className="castle">
@@ -33,10 +36,13 @@ export const HomePage = () => {
           <Candidate 
             key={c.name}
             name={c.name} 
-            avatar={c.avatar} 
+            avatar={c.avatar}
+            onVote={handleVote}
           />
         ))}
       </div>
     </div>
   );
 };
+
+
